@@ -70,10 +70,10 @@ def get_db() -> connection.MySQLConnection:
     returns a connector to the database
     """
     db_config = {
-        'user': getenv('PERSONAL_DATA_DB_USERNAME', 'root'),
-        'password': getenv('PERSONAL_DATA_DB_PASSWORD', ''),
-        'host': getenv('PERSONAL_DATA_DB_HOST', 'localhost'),
-        'database': getenv('PERSONAL_DATA_DB_NAME')
+        'user': os.getenv('PERSONAL_DATA_DB_USERNAME', 'root'),
+        'password': os.getenv('PERSONAL_DATA_DB_PASSWORD', ''),
+        'host': os.getenv('PERSONAL_DATA_DB_HOST', 'localhost'),
+        'database': os.getenv('PERSONAL_DATA_DB_NAME')
     }
     connector = connection.MySQLConnection(**db_config)
 
