@@ -33,3 +33,12 @@ def unauthorized() -> str:
         status code in json format
     """
     abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def forbidden() -> str:
+    """Forbidden end point
+    Return:
+        status code in json format
+    """
+    abort(403)
