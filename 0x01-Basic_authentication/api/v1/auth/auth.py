@@ -14,7 +14,15 @@ class Auth:
         """if path is not in excluded paths returns true,
         hence authentication is required
         """
-        return False
+        if not path or not excluded_paths:
+            return False
+        path = path + '/' if not path.endswith('/') else path
+
+        for path_excludes in excluded_paths:
+            match = re.match(path_excludes + '([*]?|(/)?)', path)
+            if match:
+                return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """
