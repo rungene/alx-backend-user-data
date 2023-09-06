@@ -4,6 +4,7 @@ auth
 """
 from flask import request
 from typing import List, TypeVar
+import re
 
 
 class Auth:
@@ -15,7 +16,7 @@ class Auth:
         hence authentication is required
         """
         if not path or not excluded_paths:
-            return False
+            return True
         path = path + '/' if not path.endswith('/') else path
 
         for path_excludes in excluded_paths:
