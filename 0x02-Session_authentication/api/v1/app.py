@@ -41,7 +41,7 @@ def filter_request() -> None:
 
             if not auth.current_user(request):
                 abort(403)
-    
+
     request.current_user = auth.current_user(request)
 
 
