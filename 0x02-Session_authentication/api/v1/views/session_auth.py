@@ -1,9 +1,9 @@
 """
-session_auth
+session_auth module for session authentication
 """
-from flask import jsonify, request
-from models.user import User
 from api.v1.views import app_views
+from flask import jsonify, request, abort
+from models.user import User
 import os
 
 
