@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 session_auth module for session authentication
 """
