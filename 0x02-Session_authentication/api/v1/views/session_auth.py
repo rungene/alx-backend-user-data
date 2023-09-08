@@ -8,7 +8,7 @@ import os
 
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
-def session_login() -> str:
+def session_login():
     """
     handles all routes for the Session authentication.
     """
