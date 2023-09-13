@@ -70,3 +70,18 @@ class DB:
             return first_user
         except TypeError:
             raise InvalidRequestError
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """Updates user with user_id
+        Args:
+            user_id(int): id of user to update
+            kwargs: Arbitrary key word args
+        Return:
+            None
+        """
+        user_to_update = self.find_user_by(id=user_id)
+        for k, v in kwargs.items():
+            if hasattr(User, k):
+                setattr(user_to_update, k, v)
+            else:
+                raise ValueError
