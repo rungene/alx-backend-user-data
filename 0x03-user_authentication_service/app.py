@@ -49,12 +49,13 @@ def login():
 def logout():
     """implements logout"""
     session_id = request.cookies.get('session_id')
-    if session_id:
-        user = AUTH.get_user_from_session_id(session_id)
-        if not user:
-            return 403
-        AUTH.destroy_session(session_id)
-        return redirect(url_for('/'))
+    if not session_id:
+        abort(403)
+    user = AUTH.get_user_from_session_id(session_id)
+    if not user:
+        abort(403)
+    AUTH.destroy_session(session_id)
+    return redirect(url_for('/'))
 
 
 if __name__ == '__main__':
